@@ -59,7 +59,7 @@ export default {
 .image-grid {
   max-width: 1200px;
   margin: auto;
-  padding: 0rem 8rem;
+  padding: 0rem 12rem;
   padding-bottom: 3rem;
   margin-top: -50px;
 
