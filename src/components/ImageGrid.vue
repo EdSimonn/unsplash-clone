@@ -73,7 +73,7 @@ export default {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 250px;
-  gap: 20px;
+  gap: 40px;
 
   @media (max-width: 1024px) {
     grid-template-columns: repeat(2, 1fr);

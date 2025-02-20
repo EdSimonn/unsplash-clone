@@ -1,11 +1,29 @@
 <template>
   <div v-if="!searchPerformed" class="search-container">
-    <input
-      type="text"
-      v-model="searchQuery"
-      @keyup.enter="emitSearch"
-      placeholder="Search for photo"
-    />
+    <div class="input-wrapper">
+      <svg
+        @click="emitSearch"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="search-icon"
+      >
+        <circle cx="11" cy="11" r="8"></circle>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input
+        type="text"
+        v-model="searchQuery"
+        @keyup.enter="emitSearch"
+        placeholder="Search for photo"
+      />
+    </div>
   </div>
   <div v-else class="search-results">
     Search Results for <span class="highlight">"{{ searchQuery }}"</span>
@@ -42,18 +60,38 @@ export default {
   overflow-x: hidden;
 }
 
-input {
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
   width: 90%;
   max-width: 1200px;
-  padding: 15px 20px;
+  background: white;
   border-radius: 12px;
   border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.search-icon {
+  flex-shrink: 0;
+  margin-right: 10px;
+  color: #64748b;
+  cursor: pointer;
+  transition: color 0.2s ease-in-out;
+}
+
+.search-icon:hover {
+  color: #1e293b;
+}
+
+input {
+  flex: 1;
+  padding: 12px 15px;
+  border: none;
   outline: none;
   font-size: 1.2rem;
-
-  @media (max-width: 480px) {
-    width: 80%;
-  }
+  width: 100%;
+  background: transparent;
 }
 
 .search-results {
